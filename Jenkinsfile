@@ -38,7 +38,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds-id') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-cred') {
                         docker.image("${DOCKER_IMAGE}").push()
                     }
                 }
